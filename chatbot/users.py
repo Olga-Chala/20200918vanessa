@@ -1,3 +1,9 @@
 from django.contrib.auth.models import User
-user = User.objects.create_user(username='User',
-                                 password='UserVanessa')
+
+# Создайте пользователя и сохраните его в базе данных
+user = User.objects.create_user(username='myusername', password='mypassword')
+
+# Обновите поля и сохраните их снова
+user.first_name = 'John'
+user.last_name = 'Citizen'
+user.save()
