@@ -50,6 +50,3 @@ class User_Answers(models.Model):
 
     def module_level_field(self):
         return ABC_Modules.module_level
-    
-    # def __str__(self):
-    #     return ABC_Modules.vanessa_question
