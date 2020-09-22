@@ -24,9 +24,6 @@ class ABC_Modules(models.Model):
         self.created_date = timezone.now()
         self.save()
         
-    # def __str__():
-    #     self.vanessa_question
-
 
 class User_Answers(models.Model):  
     verbose_name = "Ключевое слово в ответе пользователя"
@@ -50,3 +47,4 @@ class User_Answers(models.Model):
 
     def module_level_field(self):
         return ABC_Modules.module_level
+
