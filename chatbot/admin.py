@@ -7,7 +7,6 @@ class ABC_Modules_Admin(admin.ModelAdmin):
     search_fields = ('vanessa_question',)
     list_display_links = ('module_type', 'module_level', 'vanessa_question','url_address')
 
-
 class User_Answers_Admin(admin.ModelAdmin):
     list_display = ('module_guestion_field', 'created_date', 'keyword','keyword_weight')
     search_fields = ('keyword','keyword_weight')
