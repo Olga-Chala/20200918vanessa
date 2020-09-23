@@ -1,8 +1,11 @@
 from django.contrib import admin
 
 # Register your models here.
+# from .models import Post
 from .models import VanessaModule
 from .models import UserAnswerWord
+
+# admin.site.register(Post)
 
 # admin.site.register(ABC_Modules)
 

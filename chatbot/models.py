@@ -1,22 +1,69 @@
+# from django.db import models
+
+# # Create your models here.
+# # ниже доступ к коду других файлов
+# from django.conf import settings
+# from django.db import models
+# from django.utils import timezone
+
+# # класс Post - пост в блоге, наследует от модели джанго
+# class Post(models.Model):
+#     #models.ForeignKey — ссылка на другую модель.
+#     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+#     #текстовое поле с ограничением на количество символов.
+#     title = models.CharField(max_length=200)
+#     #поле для неограниченно длинного текст
+#     text = models.TextField()
+#     #дата и время
+#     created_date = models.DateTimeField(default=timezone.now)
+#     published_date = models.DateTimeField(blank=True, null=True)
+
+#     #метод publish публикации для записи
+#     def publish(self):
+#         self.published_date = timezone.now()
+#         self.save()
+#     #после вызова метода __str__() мы получим текст (строку) с заголовком записи.
+#     def __str__(self):
+#         return self.title
+
+
+
+
+
+
+# Create your models here.
 from django.conf import settings
 from django.db import models
+
 from django.utils import timezone
-import uuid
+
+
+# class Post(models.Model):
+#     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+#     title = models.CharField(max_length=200)
+#     text = models.TextField()
+#     created_date = models.DateTimeField(default=timezone.now)
+#     published_date = models.DateTimeField(blank=True, null=True)
+
+#     def publish(self):
+#         self.published_date = timezone.now()
+#         self.save()
+
+#     def __str__(self):
+#         return self.title
 
 class VanessaModule(models.Model):
-    code_abc_modules = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     verbose_name = "Модуль вопросов и ответов Ванессы"
     verbose_name_plural = "Модули вопросов и ответов Ванессы"
-
-    # 'Дата создания модуля'
+    
     created_date = models.DateTimeField('Дата создания', default=timezone.now)
-    # 'Тип модуля'
+    # 'Дата создания модуля'
     module_type = models.CharField('Тип', max_length=1)
-    # 'Уровень модуля'
+    # 'Тип модуля'
     module_number = models.IntegerField('Номер', default=0)
-     # 'Модуль используется Ванессой'
+    # 'Уровень модуля'
     module_used = models.BooleanField('Используется', default=True)
-   
+    # 'Модуль используется Ванессой'
     #previous_module = models.ForeignKey('self', on_delete=models.PROTECT, blank=True, null=True)
     # ,  related_name='Предшествующий модуль'
     # previous_module = models.IntegerField('Предшествующий модуль', null=True)
@@ -32,8 +79,6 @@ class VanessaModule(models.Model):
         
 
 class UserAnswerWord(models.Model):
-
-    code_keys = models.UUIDField(primary_key=True, unique=True, editable=False, default=0)
     verbose_name = "Ключевое слово в ответе пользователя"
     verbose_name_plural = "Ключевые слова в ответе пользователя"
     
@@ -60,5 +105,4 @@ class UserAnswerWord(models.Model):
     #     return ABC_Modules.module_level    
 
             
-    # code_abc_modules = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    # code_keys = models.UUIDField(primary_key=True, unique=True, editable=False, default=0)
+    
