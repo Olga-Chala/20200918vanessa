@@ -7,15 +7,16 @@ class VanessaModule(models.Model):
     code_abc_modules = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     verbose_name = "Модуль вопросов и ответов Ванессы"
     verbose_name_plural = "Модули вопросов и ответов Ванессы"
-    
-    created_date = models.DateTimeField('Дата создания', default=timezone.now)
+
     # 'Дата создания модуля'
-    module_type = models.CharField('Тип', max_length=1)
+    created_date = models.DateTimeField('Дата создания', default=timezone.now)
     # 'Тип модуля'
-    module_number = models.IntegerField('Номер', default=0)
+    module_type = models.CharField('Тип', max_length=1)
     # 'Уровень модуля'
+    module_number = models.IntegerField('Номер', default=0)
+     # 'Модуль используется Ванессой'
     module_used = models.BooleanField('Используется', default=True)
-    # 'Модуль используется Ванессой'
+   
     #previous_module = models.ForeignKey('self', on_delete=models.PROTECT, blank=True, null=True)
     # ,  related_name='Предшествующий модуль'
     # previous_module = models.IntegerField('Предшествующий модуль', null=True)
